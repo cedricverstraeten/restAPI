@@ -44,7 +44,7 @@ router.all('/*', function(req, res, next) {
 //redirect traffic from http to https
 router.all('*', function(request, response){
     if(request.protocol == 'http'){
-        response.redirect("https://" + request.headers.host + request.url);
+        response.redirect('https://mijntest.herokuapp.com/');
     }
 });
 
