@@ -2,7 +2,7 @@
   "name": "jwt",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
@@ -19,6 +19,9 @@
     "build": "npm i -dev && webpack --mode production",
     "heroku-postbuild": "npm build",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "14.17.6"
   },
   "author": "",
   "license": "ISC"
