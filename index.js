@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require("body-parser")
 const jwt = require('jsonwebtoken')
-const bcrypt = require('bcryptjs');
+//const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const Joi = require('joi');
 const path = require('path');
@@ -291,10 +291,10 @@ function selectSchema(collection, reqBody){
     if(collection == "Users"){
         const newUser = new User;
         
-        const hashedPassword = bcrypt.hash(reqBody.Password, 12);
+        //const hashedPassword = bcrypt.hash(reqBody.Password, 12);
 
         newUser.Name = reqBody.Name;
-        newUser.Password = hashedPassword;
+        newUser.Password = reqBody.Password;
         newUser.Mail = reqBody.Mail;
         newUser.BorrowedItems = reqBody.BorrowedItems;
         newUser.admin = reqBody.admin;
