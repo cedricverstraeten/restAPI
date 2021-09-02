@@ -43,7 +43,7 @@ router.all('/*', function(req, res, next) {
 
 //redirect traffic from http to https
 router.use(function(request, response){
-    if(request.protocol == http){
+    if(request.protocol == 'http'){
         response.redirect("https://" + request.headers.host + request.url);
     }
 });
