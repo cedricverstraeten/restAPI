@@ -41,13 +41,26 @@ router.all('/*', function(req, res, next) {
   });
 //--------------------------------------------------
 
-//redirect traffic from http to https
-router.all('*', function(request, response){
-    if(request.protocol == 'http'){
-        response.redirect('https://mijntest.herokuapp.com/');
-    }
-});
+// //redirect traffic from http to https
+// router.all('*', function(request, response){
+//     if(request.protocol == 'http'){
+//         response.redirect('https://mijntest.herokuapp.com/');
+//     }
+// });
 
+env = process.env.NODE_ENV || 'development';
+
+var forceSsl = function (req, res, next) {
+   if (req.headers['x-forwarded-proto'] !== 'https') {
+       return res.redirect(['https://', req.get('Host'), req.url].join(''));
+   }
+   return next();
+};
+
+   
+if (env === 'production') {
+    app.use(forceSsl);
+}
 
 
 // Get all items of a given collection
