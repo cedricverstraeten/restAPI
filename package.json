@@ -15,7 +15,9 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node index.js",
+    "start": "webpack-dev-server --mode development --hot --open --port $PORT",
+    "build": "npm i -dev && webpack --mode production",
+    "heroku-postbuild": "npm build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
