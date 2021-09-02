@@ -59,7 +59,7 @@ var forceSsl = function (req, res, next) {
 
    
 if (env === 'production') {
-    app.use(forceSsl);
+    router.use(forceSsl);
 }
 
 
