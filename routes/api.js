@@ -36,9 +36,17 @@ router.all('/*', function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Accept");
     res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE, PUT");
     res.header("X-Content-Type-Options", "nosniff");
+    res.header("Strict-Transport-Security", "max-age=63072000; includeSubDomains; preload")
     next();
   });
 //--------------------------------------------------
+
+//redirect traffic from http to https
+router.use(function(request, response){
+    if(!request.secure){
+      response.redirect("https://" + request.headers.host + request.url);
+    }
+});
 
 
 
