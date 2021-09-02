@@ -44,7 +44,7 @@ router.all('/*', function(req, res, next) {
 //redirect traffic from http to https
 router.use(function(request, response){
     if(!request.secure){
-      response.redirect("https://" + request.headers.host + request.url);
+      //response.redirect("https://" + request.headers.host + request.url);
     }
 });
 
