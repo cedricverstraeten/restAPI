@@ -175,7 +175,7 @@ db.connect((err)=>{
     // Start up our Express Application
     // And listen for Request
     else{
-        app.listen(port, () => console.log(`Connected to database. Started App on port: ${port}`))
+        app.listen((process.env.PORT || port), () => console.log(`Connected to database. Started App on port: ${port}`))
     }
 });
 
