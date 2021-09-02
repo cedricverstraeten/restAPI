@@ -44,6 +44,21 @@ app.all('*', function(request, response){
     }
 });
 
+env = process.env.NODE_ENV || 'development';
+
+var forceSsl = function (req, res, next) {
+   if (req.headers['x-forwarded-proto'] !== 'https') {
+       return res.redirect(['https://', req.get('Host'), req.url].join(''));
+   }
+   return next();
+};
+
+app.configure(function () {      
+   if (env === 'production') {
+       app.use(forceSsl);
+   }
+});
+
 app.post('/login', async (req, res) =>{
 
     //retrieve data
