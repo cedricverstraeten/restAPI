@@ -29,7 +29,7 @@ app.use('/api', require ('./routes/api'));
 app.all('/*', function(req, res, next) {
     //res.header("Access-Control-Allow-Origin", "https://myfablab.herokuapp.com"); // OOK IN /api WAARDE TOEVOEGEN
     res.header("Access-Control-Allow-Origin", "*"); 
-    res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Accept");
+    //res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, Accept");
     res.header("Access-Control-Allow-Methods", "POST, GET");
     res.header("X-Content-Type-Options", "nosniff");
     res.header("Strict-Transport-Security", "max-age=63072000; includeSubDomains; preload")
